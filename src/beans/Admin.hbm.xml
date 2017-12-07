@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+  This mapping demonstrates content-based discrimination for the
+  table-per-hierarchy mapping strategy, using a formula
+  discriminator.
+-->
+
+<hibernate-mapping
+        package="beans" auto-import="true">
+    <!--如果没有指定表名,默认与对象名一样-->
+    <!--lazy=false关闭懒加载-->
+    <class name="Admin" table="Admin" >
+        <id name="AdmNo">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="AdmName" length="20"></property>
+        <property name="AdmGender" type="java.lang.Integer"></property>
+        <property name="AdmAge" type="java.lang.Integer"></property>
+        <one-to-one name="loginInfo" class="LoginInfo"></one-to-one>
+    </class>
+</hibernate-mapping>

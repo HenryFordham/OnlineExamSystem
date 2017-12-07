@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-12-8 1:51:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping
+    package="beans" auto-import="true">
+    <class name="LoginInfo" table="LoginInfo">
+        <id name="loginNo">
+        </id>
+        <property name="LoginPass" length="50"></property>
+        <property name="type" type="int"></property>
+        <property name="Q1" type="int"></property>
+        <property name="A1" length="100"></property>
+        <property name="Q2" type="int"></property>
+        <property name="A2" length="100"></property>
+        <property name="Q3" type="int"></property>
+        <property name="A3" length="100"></property>
+        <property name="tel" length="20"></property>
+        <property name="Email" length="100"></property>
+        <many-to-one name="student" class="Student"  column="StuNo" lazy="false"></many-to-one>
+        <many-to-one name="admin" class="Admin" column="AdmNo" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

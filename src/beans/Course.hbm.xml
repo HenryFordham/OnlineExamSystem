@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-12-8 1:51:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping
+        package="beans" auto-import="true">
+    <class name="beans.Courses" table="Courses">
+        <id name="CouNo">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="CouName" length="30">
+
+        </property>
+        <property name="TeachNo" length="10">
+
+        </property>
+        <property name="TeachName" length="20">
+
+        </property>
+        <property name="AvailNum" type="java.lang.Integer">
+
+        </property>
+
+        <set name="exam" table="Exam" lazy="false">
+            <key column="CouNo"></key>
+            <one-to-many class="Exam"></one-to-many>
+        </set>
+
+
+        <set name="students" table="StuCourse" lazy="false">
+            <key column="CouNo"></key>
+            <many-to-many column="StuNo" class="Student"></many-to-many>
+        </set>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+  This mapping demonstrates content-based discrimination for the
+  table-per-hierarchy mapping strategy, using a formula
+  discriminator.
+-->
+
+<hibernate-mapping
+        package="beans" auto-import="true">
+    <!--如果没有指定表名,默认与对象名一样-->
+    <!--lazy=false关闭懒加载-->
+    <class name="ValidateQuestion" table="ValidateQuestion" >
+        <id name="QueNo">
+            <generator class="native"></generator>
+        </id>
+        <property name="Que" length="100"></property>
+    </class>
+</hibernate-mapping>
