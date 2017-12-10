@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-12-8 1:51:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping
+        package="beans" auto-import="true">
+    <class name="beans.Questions" table="Questions">
+        <id name="QuesNo">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="couName"></property>
+        <property name="Question"></property>
+        <property name="A"></property>
+        <property name="B"></property>
+        <property name="C"></property>
+        <property name="D"></property>
+        <property name="answer" length="10"></property>
+    </class>
+</hibernate-mapping>

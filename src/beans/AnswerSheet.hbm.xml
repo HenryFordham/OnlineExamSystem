@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-12-8 1:51:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping
+        package="beans" auto-import="true">
+    <class name="beans.AnswerSheet" table="AnswerSheet">
+        <id name="SheetID">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="IsEnd" type="integer"></property>
+        <property name="StuNo"></property>
+        <property name="CouNo"></property>
+        <property name="Q1"></property>
+        <property name="Q2"></property>
+        <property name="Q3"></property>
+        <property name="Q4"></property>
+        <property name="Q5"></property>
+        <property name="Q6"></property>
+        <property name="Q7"></property>
+        <property name="Q8"></property>
+        <property name="Q9"></property>
+        <property name="Q10"></property>
+        <property name="Q11"></property>
+        <property name="Q12"></property>
+        <property name="Q13"></property>
+        <property name="Q14"></property>
+        <property name="Q15"></property>
+        <property name="Q16"></property>
+        <property name="Q17"></property>
+        <property name="Q18"></property>
+        <property name="Q19"></property>
+        <property name="Q20"></property>
+        <property name="QNO1"></property>
+        <property name="QNO2"></property>
+        <property name="QNO3"></property>
+        <property name="QNO4"></property>
+        <property name="QNO5"></property>
+        <property name="QNO6"></property>
+        <property name="QNO7"></property>
+        <property name="QNO8"></property>
+        <property name="QNO9"></property>
+        <property name="QNO10"></property>
+        <property name="QNO11"></property>
+        <property name="QNO12"></property>
+        <property name="QNO13"></property>
+        <property name="QNO14"></property>
+        <property name="QNO15"></property>
+        <property name="QNO16"></property>
+        <property name="QNO17"></property>
+        <property name="QNO18"></property>
+        <property name="QNO19"></property>
+        <property name="QNO20"></property>
+    </class>
+</hibernate-mapping>
