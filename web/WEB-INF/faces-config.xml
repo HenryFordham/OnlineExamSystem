@@ -182,4 +182,44 @@
             <redirect></redirect>
         </navigation-case>
     </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/BeginExam.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>CouOK</from-outcome>
+            <to-view-id>/showclass.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>GOINSERT</from-outcome>
+            <to-view-id>/insertCourse.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>GOMANAGE</from-outcome>
+            <to-view-id>/manageCourse.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/showcourse.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>GODELETE</from-outcome>
+            <to-view-id>/manageCourse.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>OVER</from-outcome>
+            <to-view-id>/ExamOver.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>NOEXAM</from-outcome>
+            <to-view-id>/StuNoExam.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

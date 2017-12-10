@@ -4,6 +4,7 @@ package test;
  */
 
 import beans.*;
+import dao.QuestionManageDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -436,23 +437,93 @@ public class App {
         stu2.getExams().add(exam2);
 
     }
+    public static void test_questions(){
+        Questions questions1=new Questions("GRE","In some cultures the essence of magic is its traditional integrity; it can be efficient only if it has been _________without loss from primeval times to the present practitioner.",
+                "conventionalized","realized","transmitted","manipulated","C");
+        Questions questions2=new Questions("GRE","Certain weeds that flourish among rice crops resistdetection until maturity by ______ the seedling stage in the riceplant's life cycle, thereby remaining indistinguishable from therice crop until the flowering stage.",
+                "deterring","displacing","augmenting","imitating","D");
+        Questions questions3=new Questions("GRE","In small farming communities, accident victims rarely sue or demand compensation: transforming a personal injury into a _________ someone else is viewed as an attempt to _________ responsibility for one's own actions.",
+                "conspiracy against...assume","claim against...elude","boon for...minimize","distinction for...shift","B");
+        Questions questions4=new Questions("GRE","In small farming communities, accident victims rarely sue or demand compensation: transforming a personal injury into a _________ someone else is viewed as an attempt to _________ responsibility for one's own actions.",
+                "confused","perfunctory","independent","overt","A");
+        Questions questions5=new Questions("GRE","Though humanitarian emergencies are frequent features of television news, such exposure seldom ______ the public, which rather seems to resign to a sense of impotency.",
+                "paralyzes","demoralizes","assuages","galvanizes","D");
+        Questions questions6=new Questions("GRE","Though the volume of radioactive waste produced by nuclear power plants is______, the problem of how to dispose of that waste is not: rather, it is of major importance.",
+                "unmanageable","troubling","significant","small","D");
+        Questions questions7=new Questions("GRE","It is a paradox of the Victorians that they were both ______ and, through their empire, cosmopolitan.",
+                "capricious","insular","mercenary","idealistic","B");
+        Questions questions8=new Questions("GRE","The idea of a “language instinct” may seem ______ to those who think of language as the zenith of the human intellect and of instincts as brute impulses.\n",
+                "jarring","plausible","gratifying","inevitable","A");
+        Questions questions9=new Questions("GRE","Even if he wants to serve again----and given his obvious love for the job, the assumption among insiders is that he is more likely to stay than go----there is at least _________his serving another term.",
+                "impediment to","incentive for","precedent for","benefit in","A");
+        Questions questions10=new Questions("GRE","In protoscientific times (for example, in ancient Greece), claims about the physical world were often accepted as true if they were reasonable; experimental verification, if thought necessary at all, was ______.",
+                "utilitarian","perfunctory","egregious","empirical","B");
+        Questions questions11=new Questions("GRE","Instead of demonstrating the ______ of archaeological applications of electronic remote sensing, the pioneering study became, to some skeptics, an illustration of the imprudence of interpreting sites based on virtual archaeology.",
+                "ubiquity","limitation","promise","redundancy","C");
+        Questions questions12=new Questions("GRE","Investors are grateful that the attorney general has stepped in to pursue inquiries into misfeasance in the financial markets, given that the regulators officially charged with policing the industry have been ________.",
+                "diffident","meticulous","straightforward","implacable","A");
+        Questions questions13=new Questions("GRE","Barring the discovery of new letters, hidden diaries, or the like, fresh information about eminent people is hard to find because their lives have been so intensely _________.",
+                "ridiculed","scrutinized","admired","embellished","B");
+        Questions questions14=new Questions("GRE","Many creative photographers were delighted to find in instant photography a mode that encouraged them to stop viewing photography as________ and start viewing it as something they could handle with spontaneity, even derision.",
+                "sacrosanct","ephemeral","malleable","egalitarian","A");
+        Questions questions15=new Questions("GRE","Some ethicists worry that a deeper understanding of the brain may be tantamount to________: if we discover that free will is an illusion of neural circuitry, how will we hold people responsible for their actions?",
+                "vindication","proscription","ministration","exculpation","D");
+        Questions questions16=new Questions("GRE","A new television documentary focuses on one of the prime minister’s defining contradiction, portraying her as a woman who cultivated an image of ______, but who liked to live grandly.",
+                "irascibility","abstemiousness","contentiousness","insouciance","B");
+
+        session.save(questions1);
+        session.save(questions2);
+        session.save(questions3);
+        session.save(questions4);
+        session.save(questions5);
+        session.save(questions6);
+        session.save(questions7);
+        session.save(questions8);
+        session.save(questions9);
+        session.save(questions10);
+        session.save(questions11);
+        session.save(questions12);
+        session.save(questions13);
+        session.save(questions14);
+        session.save(questions15);
+        session.save(questions16);
+    }
+
     public static void main(String[] args) {
 
-        test_ValidateQuestion();
-        test_Admin_Logininfo();
-        test_student_Logininfo();
-        test_course_exam();
-        Add_StuCourse();
-        test_student_exam();
-
-        //Find the student named Henry
-//        Query Q_Stu1=session.createQuery("from Student where StuName=:mystu");
-//        Q_Stu1.setParameter("mystu","Henry");
-//        List<Student> studentList = (List<Student>) Q_Stu1.list();
-//        Student stu1=studentList.get(0);
+//        test_ValidateQuestion();
+//        test_Admin_Logininfo();
+//        test_student_Logininfo();
+//        test_course_exam();
+//        Add_StuCourse();
+//        test_student_exam();
 //
-//        Courses courses=session.load(Courses.class,"4028fc8260169eaa0160169eaccc0016");
-//        stu1.getCourses().add(courses);
+//        test_questions();
+//        QuestionManageDao dao=new QuestionManageDao();
+//        dao.getSheetIfExist("4028fc82603b982d01603b9830440002","4028fc82603b982d01603b98304a0006");
+
+
+//        AnswerSheet answerSheet=new AnswerSheet();
+//        answerSheet.setStuNo("4028fc82603b982d01603b9830440002");
+//        answerSheet.setCouNo("4028fc82603b982d01603b98304a0006");
+//        session.save(answerSheet);
+
+        Query Q1=session.createQuery("from AnswerSheet where StuNo=:stuno and CouNo=:couno");
+        Q1.setParameter("stuno","4028fc82603b982d01603b9830440002");
+        Q1.setParameter("couno","4028fc82603b982d01603b98304a0006");
+        AnswerSheet answerSheet=new AnswerSheet();
+        try{
+            if (Q1.list()!=null) {
+                answerSheet = (AnswerSheet) Q1.list().get(0);
+                System.out.println(answerSheet.getStuNo());
+            }
+
+            else System.out.println("NOPE");
+        }
+        catch (Exception e){
+            System.out.println("NONONO");
+        }
+
 
         transaction.commit();
         session.close();

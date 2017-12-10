@@ -9,8 +9,12 @@
 <h:head>
    <title>SayHi选课-考试系统</title>
    <link rel="stylesheet" type="text/css" href="base.css" media="all" />
+   <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
    <script type="text/javascript" charset="UTF-8" src="prefixfree.min.js"></script>
-   <style type="text/css" media="screen">
+   <script type="text/javascript" charset="UTF-8" src="assets/js/jquery.min.js"></script>
+   <script type="text/javascript" charset="UTF-8" src="assets/js/moment.min.js"></script>
+   <script type="text/javascript" charset="UTF-8" src="assets/js/script.js"></script>
+   <style type="text/css" media="screen" >
       body {
          background-color: #dbdbdb;
       }
@@ -33,7 +37,7 @@
          margin-top: 20px;
       }
       .mt-40 {
-         margin-top: 40px;
+         margin-top: -30px;
       }
       .mt-60 {
          margin-top: 60px;
@@ -68,8 +72,9 @@
          width: 320px;
       }
       .span-2 {
+         align-content: center;
          width: 350px;
-         margin: 0 40px;
+         margin: 200px 500px;
       }
       .span-3 {
          width: 200px;
@@ -77,6 +82,11 @@
       .span-4 {
          width: 588px;
          margin-left: 40px;
+      }
+      .span-5 {
+         align-content: center;
+         width: 350px;
+         margin: 20px 580px;
       }
       ::-webkit-input-placeholder, :-moz-placeholder {
          font-size: 14px;
@@ -260,7 +270,7 @@
       /*进度条*/
       .progress-bar-item {
          position: relative;
-         width: 100%;
+         width: 120%;
          height: 10px;
          background-color: #323232;
       }
@@ -866,28 +876,6 @@
          border: 5px solid transparent;
          border-top-color: #000;
       }
-      .new-tab-button {
-         margin-right: 10px;
-      }
-      .icon-new-tab:before {
-         content: "\e0a0";
-         font-size: 24px;
-      }
-      .icon-loop:before {
-         content: "\e08a";
-         font-size: 24px;
-      }
-      /*选项卡*/
-      .tab-menu-container {
-         position: relative;
-         padding-top: 35px;
-         height: 352px;
-      }
-      .tab-1, .tab-2 {
-         position: absolute;
-         width: 588px;
-         height: 352px;
-      }
       .tab-1 h2 {
          position: absolute;
          top: -35px;
@@ -898,9 +886,6 @@
          top: -35px;
          left: 140px;
          margin-left: 20px;
-      }
-      .tab-1:target, .tab-2:target {
-         z-index: 1;
       }
       .tab-menu h2 {
          padding-left: 10px;
@@ -921,11 +906,6 @@
          background-color: #00aec7;
       }
       .tab-1:target h2 a, .tab-2:target h2 a, .tab-menu h2 a:hover {
-         background-color: #006675;
-      }
-      .filters-bar {
-         color: #fff;
-         line-height: 40px;
          background-color: #006675;
       }
       .filters-bar strong:first-child, .text-columns span:first-child {
@@ -953,20 +933,6 @@
          background-color: #00aec7;
       }
       /*按钮*/
-      .big-buttons, .normal-buttons {
-         float: left;
-      }
-      .big-buttons {
-         width: 340px;
-         margin-left: 20px;
-         font-size: 18px;
-         font-weight: bold;
-      }
-      .normal-buttons {
-         width: 220px;
-         font-size: 14px;
-         font-weight: bold;
-      }
       .controls-buttons button {
          color: #fff;
          text-align: center;
@@ -1073,6 +1039,16 @@
             width: 100%;
          }
       }
+      body{ text-align:center}
+      .buttonlogin{
+         font-size: 24px;
+         color: #fff;
+         width: 100%;
+         height: 70px;
+         margin: 38px 0 30px;
+         border: none;
+         background-color: #00aec7;
+      }
    </style>
 </h:head>
 <f:view>
@@ -1083,7 +1059,7 @@
             <h:form>
                <div class="nav">
                   <ul class="nav-item clearfix">
-                     <li><h:commandLink value="我的主页" action="StuLoginSuccess"></h:commandLink></li>
+
                      <li><h:commandLink value="课程相关"></h:commandLink>
                         <ul class="nav-sub-item">
                            <li><h:commandLink value="已选课程" action="#{LoginBean.GetCourse()}">
@@ -1094,8 +1070,6 @@
                            <li><h:commandLink value="点此选课" action="GOINSERT"></h:commandLink></li>
                         </ul>
                      </li>
-                     <li><h:commandLink value="相关教师"></h:commandLink></li>
-                     <li><h:commandLink value="修改信息"></h:commandLink></li>
                      <li><h:commandLink value="考试相关"></h:commandLink>
                         <ul class="nav-sub-item">
                            <li><h:commandLink value="已选考试"></h:commandLink></li>
@@ -1103,24 +1077,29 @@
                            <li><h:commandLink value="点此考试"></h:commandLink></li>
                         </ul>
                      </li>
+                     <li><h:commandLink value="相关教师"></h:commandLink></li>
+                     <li><h:commandLink value="修改信息"></h:commandLink></li>
+                     <li><h:commandLink value="我的主页" action="StuLoginSuccess"></h:commandLink></li>
                      <li><h:commandLink value="联系我们"></h:commandLink></li>
                   </ul>
                </div>
             </h:form>
          </div>
-         <div class="fl" style="margin-top: 30px;margin-bottom: 30px">
+
+         <div class="fl" style="margin-top: 30px;margin-bottom: 50px">
             <div class="span-1 fl">
                <!--手风琴-->
                <div class="accordion">
                   <ul class="nostyle">
                      <li>
                         <input type="radio" id="ac-1" name="accordion-1" checked="checked"/>
-                        <h:outputLabel value="您好，#{LoginBean.student.stuName}"></h:outputLabel>
+                        <h:outputLabel for="ac-1" value="欢迎您，#{LoginBean.student.stuName}"></h:outputLabel>
                         <div class="accordion-content"> <img src="img/ac-1.jpg" alt=""/>
                            <h3>SayHi团队简介</h3>
                            <p>SayHi考试系统为SayHi团队新产品,SayHi团队于近年已完成SayHi考试系统桌面版,SayHi音乐-视频播放系统,SayHi聊天室等.欢迎使用本产品,希望您使用愉快,并给我们的软件打五星好评哦.</p>
                         </div>
                      </li>
+
                      <li>
                         <input type="radio" id="ac-2" name="accordion-1"/>
                         <label for="ac-2">选课模块</label>
@@ -1140,22 +1119,21 @@
                   </ul>
                </div>
             </div>
+
             <div class="fl" style="margin-left: 50px" id="output1">
-               <div class="controls-clock clearfix mt-20" align="center">
-                  <ul class="clock-item" style="align-content: center">
-                     <li class="hours"> <span class="hours-1">0 1 2 </span> <span class="hours-2">0 1 2 3 4 5 6 7 8 9 </span> </li>
-                     <li class="minutes"> <span class="minutes-1">0 1 2 3 4 5 </span> <span class="minutes-2">0 1 2 3 4 5 6 7 8 9 </span> </li>
-                     <li>&nbsp;&nbsp;&nbsp;</li>
-                     <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                  </ul>
-               </div>
-               <div class="controls-progress-bar">
-                  <div class="progress-bar-item mt-20">
-                     <div class="bar-1">
-                        <div class="progress"></div>
-                     </div>
-                     <p>Loading...</p>
+               <div id="clock" class="light" >
+                  <div class="display">
+                     <div class="weekdays"></div>
+                     <div class="ampm"></div>
+                     <div class="alarm"></div>
+                     <div class="digits"></div>
                   </div>
+               </div>
+               <!--<div class="button-holder">-->
+                  <!--<a id="switch-theme" class="button">Switch Theme</a>-->
+               <!--</div>-->
+               <div class="controls-progress-bar">
+
                   <div class="progress-bar-item mt-40">
                      <div class="bar-2">
                         <div class="progress"> <span>学期剩余80%</span></div>

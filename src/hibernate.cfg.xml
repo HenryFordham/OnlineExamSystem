@@ -35,9 +35,7 @@
 		<mapping resource="beans/LoginInfo.hbm.xml"></mapping>
 		<mapping resource="beans/ExamGrade.hbm.xml"></mapping>
 		<mapping resource="beans/ValidateQuestion.hbm.xml"></mapping>
-
-
-
-
+		<mapping resource="beans/Questions.hbm.xml"></mapping>
+		<mapping resource="beans/AnswerSheet.hbm.xml"></mapping>
 	</session-factory>
 </hibernate-configuration>
